@@ -1,0 +1,162 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration Form</title>
+    <link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+    <style>
+      /* General styles for body */
+      /* body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .wrapper {
+        width: 300px;
+        padding: 40px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 100px auto;
+        border-radius: 6px;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .input-box {
+        margin-bottom: 20px;
+      }
+
+      .input-box input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      .policy {
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      .button input {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .button input:hover {
+        background-color: #45a049;
+      }
+
+      .text {
+        text-align: center;
+      }
+
+      .text a {
+        color: #4CAF50;
+        text-decoration: none;
+      } */
+
+      /* Hidden class for switching forms */
+      .form-container {
+        display: none;
+      }
+
+      .active-form {
+        display: block;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="wrapper">
+
+      <!-- Login Form -->
+      <div id="login-form" class="form-container active-form">
+        <h2>Login</h2>
+        <form method="POST" action="{% url 'login' %}" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="input-box button">
+                <input type="submit" value="Login Now">
+            </div>
+            <div class="text">
+                <h3>Don't have an account? <a href="javascript:void(0);" onclick="toggleForm('register')">Register Now</a></h3>
+            </div>
+        </form>
+      </div>
+
+ 
+      <div id="register-form" class="form-container">
+        <h2>Registration</h2>
+        <form method="POST" action="{% url 'register' %}" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Enter your name" required>
+            </div>
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Create password" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password_confirmation" placeholder="Confirm password" required>
+            </div>
+            <div class="input-box">
+                <input type="text" name="mobile" placeholder="Enter your mobile number" required>
+            </div>
+        
+            <div class="policy">
+                <input type="checkbox" required>
+                <h3>I accept all terms & conditions</h3>
+            </div>
+        
+            <div class="input-box button">
+                <input type="submit" value="Register Now">
+            </div>
+          <div class="text">
+            <h3>Already have an account? <a href="javascript:void(0);" onclick="toggleForm('login')">Login Now</a></h3>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <script>
+      function toggleForm(form) {
+        const loginForm = document.getElementById('login-form');
+        const registerForm = document.getElementById('register-form');
+
+        if (form === 'register') {
+          loginForm.classList.remove('active-form');
+          registerForm.classList.add('active-form');
+        } else {
+          registerForm.classList.remove('active-form');
+          loginForm.classList.add('active-form');
+        }
+      }
+    </script>
+
+  </body>
+</html>

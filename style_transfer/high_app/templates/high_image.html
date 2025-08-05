@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="Image Enhancement, Blockchain, Encryption" />
+  <meta name="description" content="Discover our cutting-edge services in image enhancement and secure storage using blockchain and encryption technologies." />
+  <meta name="author" content="Visionary Tech" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+
+  <title>Visionary Tech - Image Super-Resolution</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+  
+  <style>
+    .upload_image_section {
+      padding: 50px 0;
+      background-color: #f7f7f7;
+    }
+
+    .upload_image_section .container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .upload_image_section .heading_container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .upload_image_section .heading_container h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .upload_image_section .heading_container p {
+      font-size: 16px;
+      color: #777;
+    }
+
+    .upload_image_section .form-group {
+      margin-bottom: 20px;
+    }
+
+    .upload_image_section .form-group label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .upload_image_section .form-group input[type="text"],
+    .upload_image_section .form-group input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+      height: fit-content;
+    }
+
+    .upload_image_section .form-group input[type="text"]:focus,
+    .upload_image_section .form-group input[type="file"]:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    .upload_image_section .btn {
+      padding: 12px 30px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .upload_image_section .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .uploaded_image_box {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .uploaded_image_box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{% static 'images/hero-bg.png' %}" alt="">
+      </div>
+    </div>
+
+    <!-- header section starts -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>Visionary Tech</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'home_page' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                   <li class="nav-item">
+                <a class="nav-link" href="{% url 'high_page' %}">Image Super resolution</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'image_page' %}">Image Style Transfer</a>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}"> <i class="fa fa-user" aria-hidden="true"></i> Logout</a>
+                </li>
+                <form class="form-inline">
+                  <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </form>
+              </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- upload image section -->
+  <section class="upload_image_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>Upload Image for Super-Resolution</h2>
+        <p>Upload a low-resolution image to convert it into a high-resolution version.</p>
+      </div>
+  
+      <form id="uploadForm" action="{% url 'convert_images' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="image_file">Upload Image</label>
+          <input type="file" class="form-control" id="image_file" name="image_file" accept="image/*" required>
+        </div>
+  
+        <button type="submit" class="btn btn-primary">Upload and Enhance</button>
+      </form>
+  
+      {% if uploaded_image_url %}
+      <div class="uploaded_image_box" style="margin-top: 20px;">
+        <h3>Uploaded Image</h3>
+        <img src="{{ uploaded_image_url }}" alt="Uploaded Image" style="max-width: 100%; height: auto; border-radius: 5px;">
+      </div>
+      {% endif %}
+  
+      {% if enhanced_image %}
+      <div class="uploaded_image_box" style="margin-top: 20px;">
+        <h3>Enhanced High-Resolution Image</h3>
+        <img src="data:image/png;base64,{{ enhanced_image }}" alt="Enhanced Image" style="max-width: 100%; height: auto; border-radius: 5px;">
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- footer section -->
+  <section class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="#">Visionary Tech</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- Bootstrap JS -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+  <script>
+    // Display uploaded image immediately after selection
+    document.getElementById("image_file").addEventListener("change", function(event) {
+      var file = event.target.files[0];
+      if (file && file.type.startsWith('image/')) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById("uploadedImage").src = e.target.result;
+          document.getElementById("uploadedImageContainer").style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert("Please select a valid image file.");
+      }
+    });
+
+
+  </script>
+
+</body>
+
+</html>
