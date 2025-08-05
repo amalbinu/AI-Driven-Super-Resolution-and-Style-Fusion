@@ -2,3 +2,6 @@
 
 * .jpg=binary
 * .png=binary
+
+*.shp filter=lfs diff=lfs merge=lfs -text
+*.geojson filter=lfs diff=lfs merge=fls -text
