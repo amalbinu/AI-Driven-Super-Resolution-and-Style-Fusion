@@ -94,22 +94,7 @@ Open your browser at: **http://127.0.0.1:8000/** 🎉
 
 ---
 
-## 📸 Demo
-👉 *(Add screenshots or GIFs here)*  
-
-- **Super Resolution Example:**  
-  *Low-res → High-res*  
-
-- **Style Transfer Example:**  
-  *Content + Style → Artistic Output*  
-
----
-
 ## 📄 License
 This project is licensed under the [MIT License](LICENSE).  
 
 ---
-
-## 👨‍💻 Author
-Developed by **[Your Name](https://github.com/your-username)** ✨  
-Feel free to ⭐ the repo if you found it helpful!
