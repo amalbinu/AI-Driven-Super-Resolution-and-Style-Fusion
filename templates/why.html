@@ -1,0 +1,181 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="">
+
+  <title> Visionary Tech </title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- Fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- Font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- Responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{% static 'images/hero-bg.png' %}" alt="">
+      </div>
+    </div>
+
+    <!-- Header section starts -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'index_page' %}">
+            <span>
+              Visionary Tech
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'index_page' %}">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about_page' %}"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'service_page' %}">Services</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'why_page' %}">Why Us <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login_page' %}"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+              </li>
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- End header section -->
+  </div>
+
+  <!-- Why section -->
+
+  <section class="why_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Why Choose <span>Us</span>
+        </h2>
+      </div>
+      <div class="why_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w1.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Advanced AI Solutions
+            </h5>
+            <p>
+              Our team delivers cutting-edge AI solutions tailored to streamline your business operations, enhancing productivity and decision-making with innovative technology.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w2.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Secure Blockchain Integration
+            </h5>
+            <p>
+              We provide highly secure and scalable blockchain solutions that ensure transparency, efficiency, and trust in your business processes.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w3.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Real-Time Data Insights
+            </h5>
+            <p>
+              Leverage our expertise in data analytics to gain actionable insights, enabling you to make informed, data-driven decisions instantly.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w4.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Dedicated Support Team
+            </h5>
+            <p>
+              Our support team is always available to assist you with any challenges, ensuring a seamless experience with our solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="{% url 'about_page' %}">
+          Read More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- End why section -->
+
+  <!-- Footer section -->
+  <section class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By Visionary Tech
+      </p>
+    </div>
+  </section>
+  <!-- End footer section -->
+
+  <!-- Scripts -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html>
